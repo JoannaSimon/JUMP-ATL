@@ -33,7 +33,7 @@
         <script src="js/labels.js"></script>
         <script src="js/Control.OSMGeocoder.js"></script>
         <script src="data/AtlantaCityLimits_0.js"></script>
-        <script src="data/SystemArea12SquareMiles_1.js"></script>
+        <script src="data/SystemArea13SquareMiles_1.js"></script>
         <script src="data/BikeLane_2.js"></script>
         <script src="data/RelayTripStartsSummer2018_3.js"></script>
         <script src="data/UberTripsUnder5MilesStartsEnds_4.js"></script>
@@ -53,7 +53,7 @@
         }
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
-        }).fitBounds([[33.7195536703,-84.4320054112],[33.7991265863,-84.2988547213]]);
+        }).fitBounds([[33.6969951829,-84.4440843634],[33.8314968238,-84.2190205204]]);
         var hash = new L.Hash(map);
         map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a>');
         var bounds_group = new L.featureGroup([]);
@@ -102,7 +102,7 @@
         });
         bounds_group.addLayer(layer_AtlantaCityLimits_0);
         map.addLayer(layer_AtlantaCityLimits_0);
-        function pop_SystemArea12SquareMiles_1(feature, layer) {
+        function pop_SystemArea13SquareMiles_1(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     if (typeof layer.closePopup == 'function') {
@@ -117,9 +117,9 @@
             });
         }
 
-        function style_SystemArea12SquareMiles_1_0() {
+        function style_SystemArea13SquareMiles_1_0() {
             return {
-                pane: 'pane_SystemArea12SquareMiles_1',
+                pane: 'pane_SystemArea13SquareMiles_1',
                 opacity: 1,
                 color: 'rgba(255,82,59,1.0)',
                 dashArray: '10,5',
@@ -131,17 +131,17 @@
                 fillColor: 'rgba(89,237,86,0.0)',
             }
         }
-        map.createPane('pane_SystemArea12SquareMiles_1');
-        map.getPane('pane_SystemArea12SquareMiles_1').style.zIndex = 401;
-        map.getPane('pane_SystemArea12SquareMiles_1').style['mix-blend-mode'] = 'normal';
-        var layer_SystemArea12SquareMiles_1 = new L.geoJson(json_SystemArea12SquareMiles_1, {
+        map.createPane('pane_SystemArea13SquareMiles_1');
+        map.getPane('pane_SystemArea13SquareMiles_1').style.zIndex = 401;
+        map.getPane('pane_SystemArea13SquareMiles_1').style['mix-blend-mode'] = 'normal';
+        var layer_SystemArea13SquareMiles_1 = new L.geoJson(json_SystemArea13SquareMiles_1, {
             attribution: '<a href=""></a>',
-            pane: 'pane_SystemArea12SquareMiles_1',
-            onEachFeature: pop_SystemArea12SquareMiles_1,
-            style: style_SystemArea12SquareMiles_1_0,
+            pane: 'pane_SystemArea13SquareMiles_1',
+            onEachFeature: pop_SystemArea13SquareMiles_1,
+            style: style_SystemArea13SquareMiles_1_0,
         });
-        bounds_group.addLayer(layer_SystemArea12SquareMiles_1);
-        map.addLayer(layer_SystemArea12SquareMiles_1);
+        bounds_group.addLayer(layer_SystemArea13SquareMiles_1);
+        map.addLayer(layer_SystemArea13SquareMiles_1);
         function pop_BikeLane_2(feature, layer) {
             layer.on({
                 mouseout: function(e) {
@@ -731,7 +731,7 @@
         });
         osmGeocoder.addTo(map);
         var baseMaps = {};
-        L.control.layers(baseMaps,{'<img src="legend/RelayHub_12.png" /> Relay Hub': layer_RelayHub_12,'<img src="legend/MartaStop_11.png" /> Marta Stop': layer_MartaStop_11,'<img src="legend/EmploymentDensity_10.png" /> Employment Density': layer_EmploymentDensity_10,'<img src="legend/PopulationDensity_9.png" /> Population Density': layer_PopulationDensity_9,'<img src="legend/Commercial_8.png" /> Commercial': layer_Commercial_8,'<img src="legend/Neighborhood_7.png" /> Neighborhood': layer_Neighborhood_7,'<img src="legend/MartaLine_6.png" /> Marta Line': layer_MartaLine_6,'<img src="legend/Major_Roads_5.png" /> Major_Roads': layer_Major_Roads_5,'Uber Trips Under 5 Miles - Starts & Ends<br /><table><tr><td style="text-align: center;"><img src="legend/UberTripsUnder5MilesStartsEnds_4_Low0.png" /></td><td>Low</td></tr><tr><td style="text-align: center;"><img src="legend/UberTripsUnder5MilesStartsEnds_4_Average1.png" /></td><td>Average</td></tr><tr><td style="text-align: center;"><img src="legend/UberTripsUnder5MilesStartsEnds_4_High2.png" /></td><td>High</td></tr></table>': layer_UberTripsUnder5MilesStartsEnds_4,'Relay Trip Starts - Summer 2018<br /><table><tr><td style="text-align: center;"><img src="legend/RelayTripStartsSummer2018_3_Low0.png" /></td><td>Low</td></tr><tr><td style="text-align: center;"><img src="legend/RelayTripStartsSummer2018_3_Average1.png" /></td><td>Average</td></tr><tr><td style="text-align: center;"><img src="legend/RelayTripStartsSummer2018_3_High2.png" /></td><td>High</td></tr></table>': layer_RelayTripStartsSummer2018_3,'<img src="legend/BikeLane_2.png" /> Bike Lane': layer_BikeLane_2,'<img src="legend/SystemArea12SquareMiles_1.png" /> System Area (12 Square Miles)': layer_SystemArea12SquareMiles_1,'<img src="legend/AtlantaCityLimits_0.png" /> Atlanta City Limits': layer_AtlantaCityLimits_0,},{collapsed:false}).addTo(map);
+        L.control.layers(baseMaps,{'<img src="legend/RelayHub_12.png" /> Relay Hub': layer_RelayHub_12,'<img src="legend/MartaStop_11.png" /> Marta Stop': layer_MartaStop_11,'<img src="legend/EmploymentDensity_10.png" /> Employment Density': layer_EmploymentDensity_10,'<img src="legend/PopulationDensity_9.png" /> Population Density': layer_PopulationDensity_9,'<img src="legend/Commercial_8.png" /> Commercial': layer_Commercial_8,'<img src="legend/Neighborhood_7.png" /> Neighborhood': layer_Neighborhood_7,'<img src="legend/MartaLine_6.png" /> Marta Line': layer_MartaLine_6,'<img src="legend/Major_Roads_5.png" /> Major_Roads': layer_Major_Roads_5,'Uber Trips Under 5 Miles - Starts & Ends<br /><table><tr><td style="text-align: center;"><img src="legend/UberTripsUnder5MilesStartsEnds_4_Low0.png" /></td><td>Low</td></tr><tr><td style="text-align: center;"><img src="legend/UberTripsUnder5MilesStartsEnds_4_Average1.png" /></td><td>Average</td></tr><tr><td style="text-align: center;"><img src="legend/UberTripsUnder5MilesStartsEnds_4_High2.png" /></td><td>High</td></tr></table>': layer_UberTripsUnder5MilesStartsEnds_4,'Relay Trip Starts - Summer 2018<br /><table><tr><td style="text-align: center;"><img src="legend/RelayTripStartsSummer2018_3_Low0.png" /></td><td>Low</td></tr><tr><td style="text-align: center;"><img src="legend/RelayTripStartsSummer2018_3_Average1.png" /></td><td>Average</td></tr><tr><td style="text-align: center;"><img src="legend/RelayTripStartsSummer2018_3_High2.png" /></td><td>High</td></tr></table>': layer_RelayTripStartsSummer2018_3,'<img src="legend/BikeLane_2.png" /> Bike Lane': layer_BikeLane_2,'<img src="legend/SystemArea13SquareMiles_1.png" /> System Area (13 Square Miles)': layer_SystemArea13SquareMiles_1,'<img src="legend/AtlantaCityLimits_0.png" /> Atlanta City Limits': layer_AtlantaCityLimits_0,},{collapsed:false}).addTo(map);
         setBounds();
         </script>
     </body>
