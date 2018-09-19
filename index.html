@@ -1,0 +1,738 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css">
+        <link rel="stylesheet" href="css/Control.OSMGeocoder.css">
+        <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="js/Control.OSMGeocoder.js"></script>
+        <script src="data/AtlantaCityLimits_0.js"></script>
+        <script src="data/SystemArea12SquareMiles_1.js"></script>
+        <script src="data/BikeLane_2.js"></script>
+        <script src="data/RelayTripStartsSummer2018_3.js"></script>
+        <script src="data/UberTripsUnder5MilesStartsEnds_4.js"></script>
+        <script src="data/Major_Roads_5.js"></script>
+        <script src="data/MartaLine_6.js"></script>
+        <script src="data/Neighborhood_7.js"></script>
+        <script src="data/Commercial_8.js"></script>
+        <script src="data/PopulationDensity_9.js"></script>
+        <script src="data/EmploymentDensity_10.js"></script>
+        <script src="data/MartaStop_11.js"></script>
+        <script src="data/RelayHub_12.js"></script>
+        <script>
+        var highlightLayer;
+        function highlightFeature(e) {
+            highlightLayer = e.target;
+            highlightLayer.openPopup();
+        }
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        }).fitBounds([[33.7195536703,-84.4320054112],[33.7991265863,-84.2988547213]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a>');
+        var bounds_group = new L.featureGroup([]);
+        var basemap0 = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}{r}.png', {
+            attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>,<a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Mapdata: &copy; <a href="http://openstreetmap.org">OpenStreetMap</a>contributors,<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+            maxZoom: 28
+        });
+        basemap0.addTo(map);
+        function setBounds() {
+        }
+        function pop_AtlantaCityLimits_0(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+        }
+
+        function style_AtlantaCityLimits_0_0() {
+            return {
+                pane: 'pane_AtlantaCityLimits_0',
+                opacity: 1,
+                color: 'rgba(43,102,159,1.0)',
+                dashArray: '10,5',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 4.0,
+                fillOpacity: 0,
+            }
+        }
+        map.createPane('pane_AtlantaCityLimits_0');
+        map.getPane('pane_AtlantaCityLimits_0').style.zIndex = 400;
+        map.getPane('pane_AtlantaCityLimits_0').style['mix-blend-mode'] = 'normal';
+        var layer_AtlantaCityLimits_0 = new L.geoJson(json_AtlantaCityLimits_0, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_AtlantaCityLimits_0',
+            onEachFeature: pop_AtlantaCityLimits_0,
+            style: style_AtlantaCityLimits_0_0,
+        });
+        bounds_group.addLayer(layer_AtlantaCityLimits_0);
+        map.addLayer(layer_AtlantaCityLimits_0);
+        function pop_SystemArea12SquareMiles_1(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+        }
+
+        function style_SystemArea12SquareMiles_1_0() {
+            return {
+                pane: 'pane_SystemArea12SquareMiles_1',
+                opacity: 1,
+                color: 'rgba(255,82,59,1.0)',
+                dashArray: '10,5',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 5.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(89,237,86,0.0)',
+            }
+        }
+        map.createPane('pane_SystemArea12SquareMiles_1');
+        map.getPane('pane_SystemArea12SquareMiles_1').style.zIndex = 401;
+        map.getPane('pane_SystemArea12SquareMiles_1').style['mix-blend-mode'] = 'normal';
+        var layer_SystemArea12SquareMiles_1 = new L.geoJson(json_SystemArea12SquareMiles_1, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_SystemArea12SquareMiles_1',
+            onEachFeature: pop_SystemArea12SquareMiles_1,
+            style: style_SystemArea12SquareMiles_1_0,
+        });
+        bounds_group.addLayer(layer_SystemArea12SquareMiles_1);
+        map.addLayer(layer_SystemArea12SquareMiles_1);
+        function pop_BikeLane_2(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['FACTYPE2'] !== null ? Autolinker.link(String(feature.properties['FACTYPE2'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['NAME'] !== null ? Autolinker.link(String(feature.properties['NAME'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_BikeLane_2_0() {
+            return {
+                pane: 'pane_BikeLane_2',
+                opacity: 1,
+                color: 'rgba(106,253,86,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 2.0,
+                fillOpacity: 0,
+            }
+        }
+        map.createPane('pane_BikeLane_2');
+        map.getPane('pane_BikeLane_2').style.zIndex = 402;
+        map.getPane('pane_BikeLane_2').style['mix-blend-mode'] = 'normal';
+        var layer_BikeLane_2 = new L.geoJson(json_BikeLane_2, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_BikeLane_2',
+            onEachFeature: pop_BikeLane_2,
+            style: style_BikeLane_2_0,
+        });
+        bounds_group.addLayer(layer_BikeLane_2);
+        map.addLayer(layer_BikeLane_2);
+        function pop_RelayTripStartsSummer2018_3(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Trip Start'] !== null ? Autolinker.link(String(feature.properties['Trip Start'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_RelayTripStartsSummer2018_3_0(feature) {
+            if (feature.properties['Trip Start'] >= 1.000000 && feature.properties['Trip Start'] <= 1.666667 ) {
+                return {
+                pane: 'pane_RelayTripStartsSummer2018_3',
+                radius: 2.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(51,160,44,1.0)',
+            }
+            }
+            if (feature.properties['Trip Start'] >= 1.666667 && feature.properties['Trip Start'] <= 2.333333 ) {
+                return {
+                pane: 'pane_RelayTripStartsSummer2018_3',
+                radius: 9.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(51,160,44,1.0)',
+            }
+            }
+            if (feature.properties['Trip Start'] >= 2.333333 && feature.properties['Trip Start'] <= 3.000000 ) {
+                return {
+                pane: 'pane_RelayTripStartsSummer2018_3',
+                radius: 16.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(51,160,44,1.0)',
+            }
+            }
+        }
+        map.createPane('pane_RelayTripStartsSummer2018_3');
+        map.getPane('pane_RelayTripStartsSummer2018_3').style.zIndex = 403;
+        map.getPane('pane_RelayTripStartsSummer2018_3').style['mix-blend-mode'] = 'normal';
+        var layer_RelayTripStartsSummer2018_3 = new L.geoJson(json_RelayTripStartsSummer2018_3, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_RelayTripStartsSummer2018_3',
+            onEachFeature: pop_RelayTripStartsSummer2018_3,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_RelayTripStartsSummer2018_3_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_RelayTripStartsSummer2018_3);
+        function pop_UberTripsUnder5MilesStartsEnds_4(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['NUMPOINTS'] !== null ? Autolinker.link(String(feature.properties['NUMPOINTS'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['NUMPOINTS2'] !== null ? Autolinker.link(String(feature.properties['NUMPOINTS2'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Uber_Total'] !== null ? Autolinker.link(String(feature.properties['Uber_Total'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Uber_Pt'] !== null ? Autolinker.link(String(feature.properties['Uber_Pt'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_UberTripsUnder5MilesStartsEnds_4_0(feature) {
+            if (feature.properties['Uber_Total'] >= 1.000000 && feature.properties['Uber_Total'] <= 319.000000 ) {
+                return {
+                pane: 'pane_UberTripsUnder5MilesStartsEnds_4',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(254,240,217,0.55)',
+            }
+            }
+            if (feature.properties['Uber_Total'] >= 319.000000 && feature.properties['Uber_Total'] <= 1336.000000 ) {
+                return {
+                pane: 'pane_UberTripsUnder5MilesStartsEnds_4',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(252,141,89,0.55)',
+            }
+            }
+            if (feature.properties['Uber_Total'] >= 1336.000000 && feature.properties['Uber_Total'] <= 3925.000000 ) {
+                return {
+                pane: 'pane_UberTripsUnder5MilesStartsEnds_4',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(179,0,0,0.55)',
+            }
+            }
+        }
+        map.createPane('pane_UberTripsUnder5MilesStartsEnds_4');
+        map.getPane('pane_UberTripsUnder5MilesStartsEnds_4').style.zIndex = 404;
+        map.getPane('pane_UberTripsUnder5MilesStartsEnds_4').style['mix-blend-mode'] = 'normal';
+        var layer_UberTripsUnder5MilesStartsEnds_4 = new L.geoJson(json_UberTripsUnder5MilesStartsEnds_4, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_UberTripsUnder5MilesStartsEnds_4',
+            onEachFeature: pop_UberTripsUnder5MilesStartsEnds_4,
+            style: style_UberTripsUnder5MilesStartsEnds_4_0,
+        });
+        bounds_group.addLayer(layer_UberTripsUnder5MilesStartsEnds_4);
+        function pop_Major_Roads_5(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['ROAD_NAME'] !== null ? Autolinker.link(String(feature.properties['ROAD_NAME'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Major_Roads_5_0() {
+            return {
+                pane: 'pane_Major_Roads_5',
+                opacity: 1,
+                color: 'rgba(255,246,57,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 3.0,
+                fillOpacity: 0,
+            }
+        }
+        map.createPane('pane_Major_Roads_5');
+        map.getPane('pane_Major_Roads_5').style.zIndex = 405;
+        map.getPane('pane_Major_Roads_5').style['mix-blend-mode'] = 'normal';
+        var layer_Major_Roads_5 = new L.geoJson(json_Major_Roads_5, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_Major_Roads_5',
+            onEachFeature: pop_Major_Roads_5,
+            style: style_Major_Roads_5_0,
+        });
+        bounds_group.addLayer(layer_Major_Roads_5);
+        function pop_MartaLine_6(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+        }
+
+        function style_MartaLine_6_0() {
+            return {
+                pane: 'pane_MartaLine_6',
+                opacity: 1,
+                color: 'rgba(31,120,180,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 2.0,
+                fillOpacity: 0,
+            }
+        }
+        map.createPane('pane_MartaLine_6');
+        map.getPane('pane_MartaLine_6').style.zIndex = 406;
+        map.getPane('pane_MartaLine_6').style['mix-blend-mode'] = 'normal';
+        var layer_MartaLine_6 = new L.geoJson(json_MartaLine_6, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_MartaLine_6',
+            onEachFeature: pop_MartaLine_6,
+            style: style_MartaLine_6_0,
+        });
+        bounds_group.addLayer(layer_MartaLine_6);
+        map.addLayer(layer_MartaLine_6);
+        function pop_Neighborhood_7(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['NAME'] !== null ? Autolinker.link(String(feature.properties['NAME'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Neighborhood_7_0() {
+            return {
+                pane: 'pane_Neighborhood_7',
+                opacity: 1,
+                color: 'rgba(255,255,255,0.4)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 4.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(205,247,50,0.4)',
+            }
+        }
+        map.createPane('pane_Neighborhood_7');
+        map.getPane('pane_Neighborhood_7').style.zIndex = 407;
+        map.getPane('pane_Neighborhood_7').style['mix-blend-mode'] = 'normal';
+        var layer_Neighborhood_7 = new L.geoJson(json_Neighborhood_7, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_Neighborhood_7',
+            onEachFeature: pop_Neighborhood_7,
+            style: style_Neighborhood_7_0,
+        });
+        bounds_group.addLayer(layer_Neighborhood_7);
+        function pop_Commercial_8(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+        }
+
+        function style_Commercial_8_0() {
+            return {
+                pane: 'pane_Commercial_8',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,127,0,0.35)',
+            }
+        }
+        map.createPane('pane_Commercial_8');
+        map.getPane('pane_Commercial_8').style.zIndex = 408;
+        map.getPane('pane_Commercial_8').style['mix-blend-mode'] = 'normal';
+        var layer_Commercial_8 = new L.geoJson(json_Commercial_8, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_Commercial_8',
+            onEachFeature: pop_Commercial_8,
+            style: style_Commercial_8_0,
+        });
+        bounds_group.addLayer(layer_Commercial_8);
+        function pop_PopulationDensity_9(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['UI'] !== null ? Autolinker.link(String(feature.properties['UI'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Total Pop</strong><br />' + (feature.properties['Total Pop'] !== null ? Autolinker.link(String(feature.properties['Total Pop'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Pop_Pt'] !== null ? Autolinker.link(String(feature.properties['Pop_Pt'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_PopulationDensity_9_0() {
+            return {
+                pane: 'pane_PopulationDensity_9',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(75,104,139,0.55)',
+            }
+        }
+        map.createPane('pane_PopulationDensity_9');
+        map.getPane('pane_PopulationDensity_9').style.zIndex = 409;
+        map.getPane('pane_PopulationDensity_9').style['mix-blend-mode'] = 'normal';
+        var layer_PopulationDensity_9 = new L.geoJson(json_PopulationDensity_9, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_PopulationDensity_9',
+            onEachFeature: pop_PopulationDensity_9,
+            style: style_PopulationDensity_9_0,
+        });
+        bounds_group.addLayer(layer_PopulationDensity_9);
+        function pop_EmploymentDensity_10(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['UI'] !== null ? Autolinker.link(String(feature.properties['UI'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Total Jobs</strong><br />' + (feature.properties['Total Jobs'] !== null ? Autolinker.link(String(feature.properties['Total Jobs'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_EmploymentDensity_10_0() {
+            return {
+                pane: 'pane_EmploymentDensity_10',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(212,171,106,0.55)',
+            }
+        }
+        map.createPane('pane_EmploymentDensity_10');
+        map.getPane('pane_EmploymentDensity_10').style.zIndex = 410;
+        map.getPane('pane_EmploymentDensity_10').style['mix-blend-mode'] = 'normal';
+        var layer_EmploymentDensity_10 = new L.geoJson(json_EmploymentDensity_10, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_EmploymentDensity_10',
+            onEachFeature: pop_EmploymentDensity_10,
+            style: style_EmploymentDensity_10_0,
+        });
+        bounds_group.addLayer(layer_EmploymentDensity_10);
+        function pop_MartaStop_11(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Name'] !== null ? Autolinker.link(String(feature.properties['Name'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_MartaStop_11_0() {
+            return {
+                pane: 'pane_MartaStop_11',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(31,120,180,1.0)',
+            }
+        }
+        map.createPane('pane_MartaStop_11');
+        map.getPane('pane_MartaStop_11').style.zIndex = 411;
+        map.getPane('pane_MartaStop_11').style['mix-blend-mode'] = 'normal';
+        var layer_MartaStop_11 = new L.geoJson(json_MartaStop_11, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_MartaStop_11',
+            onEachFeature: pop_MartaStop_11,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_MartaStop_11_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_MartaStop_11);
+        function pop_RelayHub_12(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2"><strong>Name</strong><br />' + (feature.properties['Name'] !== null ? Autolinker.link(String(feature.properties['Name'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong># Wave Rac</strong><br />' + (feature.properties['# Wave Rac'] !== null ? Autolinker.link(String(feature.properties['# Wave Rac'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_RelayHub_12_0() {
+            return {
+                pane: 'pane_RelayHub_12',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/BikeIcon.svg',
+            iconSize: [22.8, 22.8]
+        }),
+            }
+        }
+        map.createPane('pane_RelayHub_12');
+        map.getPane('pane_RelayHub_12').style.zIndex = 412;
+        map.getPane('pane_RelayHub_12').style['mix-blend-mode'] = 'normal';
+        var layer_RelayHub_12 = new L.geoJson(json_RelayHub_12, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_RelayHub_12',
+            onEachFeature: pop_RelayHub_12,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_RelayHub_12_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_RelayHub_12);
+        var osmGeocoder = new L.Control.OSMGeocoder({
+            collapsed: false,
+            position: 'topright',
+            text: 'Search',
+        });
+        osmGeocoder.addTo(map);
+        var baseMaps = {};
+        L.control.layers(baseMaps,{'<img src="legend/RelayHub_12.png" /> Relay Hub': layer_RelayHub_12,'<img src="legend/MartaStop_11.png" /> Marta Stop': layer_MartaStop_11,'<img src="legend/EmploymentDensity_10.png" /> Employment Density': layer_EmploymentDensity_10,'<img src="legend/PopulationDensity_9.png" /> Population Density': layer_PopulationDensity_9,'<img src="legend/Commercial_8.png" /> Commercial': layer_Commercial_8,'<img src="legend/Neighborhood_7.png" /> Neighborhood': layer_Neighborhood_7,'<img src="legend/MartaLine_6.png" /> Marta Line': layer_MartaLine_6,'<img src="legend/Major_Roads_5.png" /> Major_Roads': layer_Major_Roads_5,'Uber Trips Under 5 Miles - Starts & Ends<br /><table><tr><td style="text-align: center;"><img src="legend/UberTripsUnder5MilesStartsEnds_4_Low0.png" /></td><td>Low</td></tr><tr><td style="text-align: center;"><img src="legend/UberTripsUnder5MilesStartsEnds_4_Average1.png" /></td><td>Average</td></tr><tr><td style="text-align: center;"><img src="legend/UberTripsUnder5MilesStartsEnds_4_High2.png" /></td><td>High</td></tr></table>': layer_UberTripsUnder5MilesStartsEnds_4,'Relay Trip Starts - Summer 2018<br /><table><tr><td style="text-align: center;"><img src="legend/RelayTripStartsSummer2018_3_Low0.png" /></td><td>Low</td></tr><tr><td style="text-align: center;"><img src="legend/RelayTripStartsSummer2018_3_Average1.png" /></td><td>Average</td></tr><tr><td style="text-align: center;"><img src="legend/RelayTripStartsSummer2018_3_High2.png" /></td><td>High</td></tr></table>': layer_RelayTripStartsSummer2018_3,'<img src="legend/BikeLane_2.png" /> Bike Lane': layer_BikeLane_2,'<img src="legend/SystemArea12SquareMiles_1.png" /> System Area (12 Square Miles)': layer_SystemArea12SquareMiles_1,'<img src="legend/AtlantaCityLimits_0.png" /> Atlanta City Limits': layer_AtlantaCityLimits_0,},{collapsed:false}).addTo(map);
+        setBounds();
+        </script>
+    </body>
+</html>
