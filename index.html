@@ -34,22 +34,24 @@
         <script src="js/Control.OSMGeocoder.js"></script>
         <script src="data/AtlantaCityLimits_0.js"></script>
         <script src="data/SoBiRelaySystemArea_1.js"></script>
-        <script src="data/JUMPSystemArea15SquareMiles_2.js"></script>
-        <script src="data/BikeLane_3.js"></script>
-        <script src="data/RelayTripStartsSummer2018_4.js"></script>
-        <script src="data/UberTripsUnder5MilesStartsEnds_5.js"></script>
-        <script src="data/Major_Roads_6.js"></script>
-        <script src="data/MartaLine_7.js"></script>
-        <script src="data/Neighborhood_8.js"></script>
-        <script src="data/Commercial_9.js"></script>
-        <script src="data/PopulationDensity_10.js"></script>
-        <script src="data/EmploymentDensity_11.js"></script>
-        <script src="data/MartaStop_12.js"></script>
-        <script src="data/RelayHub_13.js"></script>
+        <script src="data/JUMPSystenArea_Large_2.js"></script>
+        <script src="data/JUMPSystemAreaSmall_3.js"></script>
+        <script src="data/BeltlineExpansion_4.js"></script>
+        <script src="data/BikeLane_5.js"></script>
+        <script src="data/RelayTripStartsSummer2018_6.js"></script>
+        <script src="data/UberTripsUnder5MilesStartsEnds_7.js"></script>
+        <script src="data/Major_Roads_8.js"></script>
+        <script src="data/MartaLine_9.js"></script>
+        <script src="data/Neighborhood_10.js"></script>
+        <script src="data/Commercial_11.js"></script>
+        <script src="data/PopulationDensity_12.js"></script>
+        <script src="data/EmploymentDensity_13.js"></script>
+        <script src="data/MartaStop_14.js"></script>
+        <script src="data/RelayHub_15.js"></script>
         <script>
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
-        }).fitBounds([[33.6987930338,-84.4468424755],[33.8191348306,-84.2528250899]]);
+        }).fitBounds([[33.7057825315,-84.5092806425],[33.8195054129,-84.2597427075]]);
         var hash = new L.Hash(map);
         map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a>');
         var bounds_group = new L.featureGroup([]);
@@ -119,36 +121,94 @@
             style: style_SoBiRelaySystemArea_1_0,
         });
         bounds_group.addLayer(layer_SoBiRelaySystemArea_1);
-        map.addLayer(layer_SoBiRelaySystemArea_1);
-        function pop_JUMPSystemArea15SquareMiles_2(feature, layer) {
+        function pop_JUMPSystenArea_Large_2(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['FID'] !== null ? Autolinker.link(String(feature.properties['FID'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_JUMPSystemArea15SquareMiles_2_0() {
+        function style_JUMPSystenArea_Large_2_0() {
             return {
-                pane: 'pane_JUMPSystemArea15SquareMiles_2',
+                pane: 'pane_JUMPSystenArea_Large_2',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '10,5',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 4.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,246,57,0.0)',
+            }
+        }
+        map.createPane('pane_JUMPSystenArea_Large_2');
+        map.getPane('pane_JUMPSystenArea_Large_2').style.zIndex = 402;
+        map.getPane('pane_JUMPSystenArea_Large_2').style['mix-blend-mode'] = 'normal';
+        var layer_JUMPSystenArea_Large_2 = new L.geoJson(json_JUMPSystenArea_Large_2, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_JUMPSystenArea_Large_2',
+            onEachFeature: pop_JUMPSystenArea_Large_2,
+            style: style_JUMPSystenArea_Large_2_0,
+        });
+        bounds_group.addLayer(layer_JUMPSystenArea_Large_2);
+        map.addLayer(layer_JUMPSystenArea_Large_2);
+        function pop_JUMPSystemAreaSmall_3(feature, layer) {
+        }
+
+        function style_JUMPSystemAreaSmall_3_0() {
+            return {
+                pane: 'pane_JUMPSystemAreaSmall_3',
                 opacity: 1,
                 color: 'rgba(227,26,28,1.0)',
                 dashArray: '10,5',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 5.0,
+                weight: 4.0,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(89,237,86,0.0)',
+                fillColor: 'rgba(194,76,236,0.0)',
             }
         }
-        map.createPane('pane_JUMPSystemArea15SquareMiles_2');
-        map.getPane('pane_JUMPSystemArea15SquareMiles_2').style.zIndex = 402;
-        map.getPane('pane_JUMPSystemArea15SquareMiles_2').style['mix-blend-mode'] = 'normal';
-        var layer_JUMPSystemArea15SquareMiles_2 = new L.geoJson(json_JUMPSystemArea15SquareMiles_2, {
+        map.createPane('pane_JUMPSystemAreaSmall_3');
+        map.getPane('pane_JUMPSystemAreaSmall_3').style.zIndex = 403;
+        map.getPane('pane_JUMPSystemAreaSmall_3').style['mix-blend-mode'] = 'normal';
+        var layer_JUMPSystemAreaSmall_3 = new L.geoJson(json_JUMPSystemAreaSmall_3, {
             attribution: '<a href=""></a>',
-            pane: 'pane_JUMPSystemArea15SquareMiles_2',
-            onEachFeature: pop_JUMPSystemArea15SquareMiles_2,
-            style: style_JUMPSystemArea15SquareMiles_2_0,
+            pane: 'pane_JUMPSystemAreaSmall_3',
+            onEachFeature: pop_JUMPSystemAreaSmall_3,
+            style: style_JUMPSystemAreaSmall_3_0,
         });
-        bounds_group.addLayer(layer_JUMPSystemArea15SquareMiles_2);
-        map.addLayer(layer_JUMPSystemArea15SquareMiles_2);
-        function pop_BikeLane_3(feature, layer) {
+        bounds_group.addLayer(layer_JUMPSystemAreaSmall_3);
+        map.addLayer(layer_JUMPSystemAreaSmall_3);
+        function pop_BeltlineExpansion_4(feature, layer) {
+        }
+
+        function style_BeltlineExpansion_4_0() {
+            return {
+                pane: 'pane_BeltlineExpansion_4',
+                opacity: 1,
+                color: 'rgba(255,246,57,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 3.0,
+                fillOpacity: 0,
+            }
+        }
+        map.createPane('pane_BeltlineExpansion_4');
+        map.getPane('pane_BeltlineExpansion_4').style.zIndex = 404;
+        map.getPane('pane_BeltlineExpansion_4').style['mix-blend-mode'] = 'normal';
+        var layer_BeltlineExpansion_4 = new L.geoJson(json_BeltlineExpansion_4, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_BeltlineExpansion_4',
+            onEachFeature: pop_BeltlineExpansion_4,
+            style: style_BeltlineExpansion_4_0,
+        });
+        bounds_group.addLayer(layer_BeltlineExpansion_4);
+        function pop_BikeLane_5(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['FACTYPE2'] !== null ? Autolinker.link(String(feature.properties['FACTYPE2'])) : '') + '</td>\
@@ -160,9 +220,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_BikeLane_3_0() {
+        function style_BikeLane_5_0() {
             return {
-                pane: 'pane_BikeLane_3',
+                pane: 'pane_BikeLane_5',
                 opacity: 1,
                 color: 'rgba(106,253,86,1.0)',
                 dashArray: '',
@@ -172,29 +232,30 @@
                 fillOpacity: 0,
             }
         }
-        map.createPane('pane_BikeLane_3');
-        map.getPane('pane_BikeLane_3').style.zIndex = 403;
-        map.getPane('pane_BikeLane_3').style['mix-blend-mode'] = 'normal';
-        var layer_BikeLane_3 = new L.geoJson(json_BikeLane_3, {
+        map.createPane('pane_BikeLane_5');
+        map.getPane('pane_BikeLane_5').style.zIndex = 405;
+        map.getPane('pane_BikeLane_5').style['mix-blend-mode'] = 'normal';
+        var layer_BikeLane_5 = new L.geoJson(json_BikeLane_5, {
             attribution: '<a href=""></a>',
-            pane: 'pane_BikeLane_3',
-            onEachFeature: pop_BikeLane_3,
-            style: style_BikeLane_3_0,
+            pane: 'pane_BikeLane_5',
+            onEachFeature: pop_BikeLane_5,
+            style: style_BikeLane_5_0,
         });
-        bounds_group.addLayer(layer_BikeLane_3);
-        map.addLayer(layer_BikeLane_3);
-        function pop_RelayTripStartsSummer2018_4(feature, layer) {
+        bounds_group.addLayer(layer_BikeLane_5);
+        map.addLayer(layer_BikeLane_5);
+        function pop_RelayTripStartsSummer2018_6(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
+                        <td colspan="2">' + (feature.properties['Trip Start'] !== null ? Autolinker.link(String(feature.properties['Trip Start'])) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_RelayTripStartsSummer2018_4_0(feature) {
+        function style_RelayTripStartsSummer2018_6_0(feature) {
             if (feature.properties['Trip Start'] >= 1.000000 && feature.properties['Trip Start'] <= 1.666667 ) {
                 return {
-                pane: 'pane_RelayTripStartsSummer2018_4',
+                pane: 'pane_RelayTripStartsSummer2018_6',
                 radius: 2.0,
                 opacity: 1,
                 color: 'rgba(0,0,0,0.0)',
@@ -209,7 +270,7 @@
             }
             if (feature.properties['Trip Start'] >= 1.666667 && feature.properties['Trip Start'] <= 2.333333 ) {
                 return {
-                pane: 'pane_RelayTripStartsSummer2018_4',
+                pane: 'pane_RelayTripStartsSummer2018_6',
                 radius: 9.0,
                 opacity: 1,
                 color: 'rgba(0,0,0,0.0)',
@@ -224,7 +285,7 @@
             }
             if (feature.properties['Trip Start'] >= 2.333333 && feature.properties['Trip Start'] <= 3.000000 ) {
                 return {
-                pane: 'pane_RelayTripStartsSummer2018_4',
+                pane: 'pane_RelayTripStartsSummer2018_6',
                 radius: 16.0,
                 opacity: 1,
                 color: 'rgba(0,0,0,0.0)',
@@ -238,23 +299,23 @@
             }
             }
         }
-        map.createPane('pane_RelayTripStartsSummer2018_4');
-        map.getPane('pane_RelayTripStartsSummer2018_4').style.zIndex = 404;
-        map.getPane('pane_RelayTripStartsSummer2018_4').style['mix-blend-mode'] = 'normal';
-        var layer_RelayTripStartsSummer2018_4 = new L.geoJson(json_RelayTripStartsSummer2018_4, {
+        map.createPane('pane_RelayTripStartsSummer2018_6');
+        map.getPane('pane_RelayTripStartsSummer2018_6').style.zIndex = 406;
+        map.getPane('pane_RelayTripStartsSummer2018_6').style['mix-blend-mode'] = 'normal';
+        var layer_RelayTripStartsSummer2018_6 = new L.geoJson(json_RelayTripStartsSummer2018_6, {
             attribution: '<a href=""></a>',
-            pane: 'pane_RelayTripStartsSummer2018_4',
-            onEachFeature: pop_RelayTripStartsSummer2018_4,
+            pane: 'pane_RelayTripStartsSummer2018_6',
+            onEachFeature: pop_RelayTripStartsSummer2018_6,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_RelayTripStartsSummer2018_4_0(feature));
+                return L.circleMarker(latlng, style_RelayTripStartsSummer2018_6_0(feature));
             },
         });
-        bounds_group.addLayer(layer_RelayTripStartsSummer2018_4);
-        function pop_UberTripsUnder5MilesStartsEnds_5(feature, layer) {
+        bounds_group.addLayer(layer_RelayTripStartsSummer2018_6);
+        function pop_UberTripsUnder5MilesStartsEnds_7(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                     </tr>\
@@ -262,10 +323,10 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_UberTripsUnder5MilesStartsEnds_5_0(feature) {
+        function style_UberTripsUnder5MilesStartsEnds_7_0(feature) {
             if (feature.properties['Uber_Total'] >= 1.000000 && feature.properties['Uber_Total'] <= 319.000000 ) {
                 return {
-                pane: 'pane_UberTripsUnder5MilesStartsEnds_5',
+                pane: 'pane_UberTripsUnder5MilesStartsEnds_7',
                 opacity: 1,
                 color: 'rgba(0,0,0,0.0)',
                 dashArray: '',
@@ -279,7 +340,7 @@
             }
             if (feature.properties['Uber_Total'] >= 319.000000 && feature.properties['Uber_Total'] <= 1336.000000 ) {
                 return {
-                pane: 'pane_UberTripsUnder5MilesStartsEnds_5',
+                pane: 'pane_UberTripsUnder5MilesStartsEnds_7',
                 opacity: 1,
                 color: 'rgba(0,0,0,0.0)',
                 dashArray: '',
@@ -293,7 +354,7 @@
             }
             if (feature.properties['Uber_Total'] >= 1336.000000 && feature.properties['Uber_Total'] <= 3925.000000 ) {
                 return {
-                pane: 'pane_UberTripsUnder5MilesStartsEnds_5',
+                pane: 'pane_UberTripsUnder5MilesStartsEnds_7',
                 opacity: 1,
                 color: 'rgba(0,0,0,0.0)',
                 dashArray: '',
@@ -306,17 +367,17 @@
             }
             }
         }
-        map.createPane('pane_UberTripsUnder5MilesStartsEnds_5');
-        map.getPane('pane_UberTripsUnder5MilesStartsEnds_5').style.zIndex = 405;
-        map.getPane('pane_UberTripsUnder5MilesStartsEnds_5').style['mix-blend-mode'] = 'normal';
-        var layer_UberTripsUnder5MilesStartsEnds_5 = new L.geoJson(json_UberTripsUnder5MilesStartsEnds_5, {
+        map.createPane('pane_UberTripsUnder5MilesStartsEnds_7');
+        map.getPane('pane_UberTripsUnder5MilesStartsEnds_7').style.zIndex = 407;
+        map.getPane('pane_UberTripsUnder5MilesStartsEnds_7').style['mix-blend-mode'] = 'normal';
+        var layer_UberTripsUnder5MilesStartsEnds_7 = new L.geoJson(json_UberTripsUnder5MilesStartsEnds_7, {
             attribution: '<a href=""></a>',
-            pane: 'pane_UberTripsUnder5MilesStartsEnds_5',
-            onEachFeature: pop_UberTripsUnder5MilesStartsEnds_5,
-            style: style_UberTripsUnder5MilesStartsEnds_5_0,
+            pane: 'pane_UberTripsUnder5MilesStartsEnds_7',
+            onEachFeature: pop_UberTripsUnder5MilesStartsEnds_7,
+            style: style_UberTripsUnder5MilesStartsEnds_7_0,
         });
-        bounds_group.addLayer(layer_UberTripsUnder5MilesStartsEnds_5);
-        function pop_Major_Roads_6(feature, layer) {
+        bounds_group.addLayer(layer_UberTripsUnder5MilesStartsEnds_7);
+        function pop_Major_Roads_8(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['ROAD_NAME'] !== null ? Autolinker.link(String(feature.properties['ROAD_NAME'])) : '') + '</td>\
@@ -325,9 +386,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_Major_Roads_6_0() {
+        function style_Major_Roads_8_0() {
             return {
-                pane: 'pane_Major_Roads_6',
+                pane: 'pane_Major_Roads_8',
                 opacity: 1,
                 color: 'rgba(255,246,57,1.0)',
                 dashArray: '',
@@ -337,22 +398,22 @@
                 fillOpacity: 0,
             }
         }
-        map.createPane('pane_Major_Roads_6');
-        map.getPane('pane_Major_Roads_6').style.zIndex = 406;
-        map.getPane('pane_Major_Roads_6').style['mix-blend-mode'] = 'normal';
-        var layer_Major_Roads_6 = new L.geoJson(json_Major_Roads_6, {
+        map.createPane('pane_Major_Roads_8');
+        map.getPane('pane_Major_Roads_8').style.zIndex = 408;
+        map.getPane('pane_Major_Roads_8').style['mix-blend-mode'] = 'normal';
+        var layer_Major_Roads_8 = new L.geoJson(json_Major_Roads_8, {
             attribution: '<a href=""></a>',
-            pane: 'pane_Major_Roads_6',
-            onEachFeature: pop_Major_Roads_6,
-            style: style_Major_Roads_6_0,
+            pane: 'pane_Major_Roads_8',
+            onEachFeature: pop_Major_Roads_8,
+            style: style_Major_Roads_8_0,
         });
-        bounds_group.addLayer(layer_Major_Roads_6);
-        function pop_MartaLine_7(feature, layer) {
+        bounds_group.addLayer(layer_Major_Roads_8);
+        function pop_MartaLine_9(feature, layer) {
         }
 
-        function style_MartaLine_7_0() {
+        function style_MartaLine_9_0() {
             return {
-                pane: 'pane_MartaLine_7',
+                pane: 'pane_MartaLine_9',
                 opacity: 1,
                 color: 'rgba(31,120,180,1.0)',
                 dashArray: '',
@@ -362,18 +423,18 @@
                 fillOpacity: 0,
             }
         }
-        map.createPane('pane_MartaLine_7');
-        map.getPane('pane_MartaLine_7').style.zIndex = 407;
-        map.getPane('pane_MartaLine_7').style['mix-blend-mode'] = 'normal';
-        var layer_MartaLine_7 = new L.geoJson(json_MartaLine_7, {
+        map.createPane('pane_MartaLine_9');
+        map.getPane('pane_MartaLine_9').style.zIndex = 409;
+        map.getPane('pane_MartaLine_9').style['mix-blend-mode'] = 'normal';
+        var layer_MartaLine_9 = new L.geoJson(json_MartaLine_9, {
             attribution: '<a href=""></a>',
-            pane: 'pane_MartaLine_7',
-            onEachFeature: pop_MartaLine_7,
-            style: style_MartaLine_7_0,
+            pane: 'pane_MartaLine_9',
+            onEachFeature: pop_MartaLine_9,
+            style: style_MartaLine_9_0,
         });
-        bounds_group.addLayer(layer_MartaLine_7);
-        map.addLayer(layer_MartaLine_7);
-        function pop_Neighborhood_8(feature, layer) {
+        bounds_group.addLayer(layer_MartaLine_9);
+        map.addLayer(layer_MartaLine_9);
+        function pop_Neighborhood_10(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['NAME'] !== null ? Autolinker.link(String(feature.properties['NAME'])) : '') + '</td>\
@@ -382,9 +443,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_Neighborhood_8_0() {
+        function style_Neighborhood_10_0() {
             return {
-                pane: 'pane_Neighborhood_8',
+                pane: 'pane_Neighborhood_10',
                 opacity: 1,
                 color: 'rgba(255,255,255,0.4)',
                 dashArray: '',
@@ -396,22 +457,22 @@
                 fillColor: 'rgba(205,247,50,0.4)',
             }
         }
-        map.createPane('pane_Neighborhood_8');
-        map.getPane('pane_Neighborhood_8').style.zIndex = 408;
-        map.getPane('pane_Neighborhood_8').style['mix-blend-mode'] = 'normal';
-        var layer_Neighborhood_8 = new L.geoJson(json_Neighborhood_8, {
+        map.createPane('pane_Neighborhood_10');
+        map.getPane('pane_Neighborhood_10').style.zIndex = 410;
+        map.getPane('pane_Neighborhood_10').style['mix-blend-mode'] = 'normal';
+        var layer_Neighborhood_10 = new L.geoJson(json_Neighborhood_10, {
             attribution: '<a href=""></a>',
-            pane: 'pane_Neighborhood_8',
-            onEachFeature: pop_Neighborhood_8,
-            style: style_Neighborhood_8_0,
+            pane: 'pane_Neighborhood_10',
+            onEachFeature: pop_Neighborhood_10,
+            style: style_Neighborhood_10_0,
         });
-        bounds_group.addLayer(layer_Neighborhood_8);
-        function pop_Commercial_9(feature, layer) {
+        bounds_group.addLayer(layer_Neighborhood_10);
+        function pop_Commercial_11(feature, layer) {
         }
 
-        function style_Commercial_9_0() {
+        function style_Commercial_11_0() {
             return {
-                pane: 'pane_Commercial_9',
+                pane: 'pane_Commercial_11',
                 opacity: 1,
                 color: 'rgba(0,0,0,0.0)',
                 dashArray: '',
@@ -423,22 +484,22 @@
                 fillColor: 'rgba(255,127,0,0.35)',
             }
         }
-        map.createPane('pane_Commercial_9');
-        map.getPane('pane_Commercial_9').style.zIndex = 409;
-        map.getPane('pane_Commercial_9').style['mix-blend-mode'] = 'normal';
-        var layer_Commercial_9 = new L.geoJson(json_Commercial_9, {
+        map.createPane('pane_Commercial_11');
+        map.getPane('pane_Commercial_11').style.zIndex = 411;
+        map.getPane('pane_Commercial_11').style['mix-blend-mode'] = 'normal';
+        var layer_Commercial_11 = new L.geoJson(json_Commercial_11, {
             attribution: '<a href=""></a>',
-            pane: 'pane_Commercial_9',
-            onEachFeature: pop_Commercial_9,
-            style: style_Commercial_9_0,
+            pane: 'pane_Commercial_11',
+            onEachFeature: pop_Commercial_11,
+            style: style_Commercial_11_0,
         });
-        bounds_group.addLayer(layer_Commercial_9);
-        function pop_PopulationDensity_10(feature, layer) {
+        bounds_group.addLayer(layer_Commercial_11);
+        function pop_PopulationDensity_12(feature, layer) {
         }
 
-        function style_PopulationDensity_10_0() {
+        function style_PopulationDensity_12_0() {
             return {
-                pane: 'pane_PopulationDensity_10',
+                pane: 'pane_PopulationDensity_12',
                 opacity: 1,
                 color: 'rgba(0,0,0,0.0)',
                 dashArray: '',
@@ -450,22 +511,22 @@
                 fillColor: 'rgba(75,104,139,0.55)',
             }
         }
-        map.createPane('pane_PopulationDensity_10');
-        map.getPane('pane_PopulationDensity_10').style.zIndex = 410;
-        map.getPane('pane_PopulationDensity_10').style['mix-blend-mode'] = 'normal';
-        var layer_PopulationDensity_10 = new L.geoJson(json_PopulationDensity_10, {
+        map.createPane('pane_PopulationDensity_12');
+        map.getPane('pane_PopulationDensity_12').style.zIndex = 412;
+        map.getPane('pane_PopulationDensity_12').style['mix-blend-mode'] = 'normal';
+        var layer_PopulationDensity_12 = new L.geoJson(json_PopulationDensity_12, {
             attribution: '<a href=""></a>',
-            pane: 'pane_PopulationDensity_10',
-            onEachFeature: pop_PopulationDensity_10,
-            style: style_PopulationDensity_10_0,
+            pane: 'pane_PopulationDensity_12',
+            onEachFeature: pop_PopulationDensity_12,
+            style: style_PopulationDensity_12_0,
         });
-        bounds_group.addLayer(layer_PopulationDensity_10);
-        function pop_EmploymentDensity_11(feature, layer) {
+        bounds_group.addLayer(layer_PopulationDensity_12);
+        function pop_EmploymentDensity_13(feature, layer) {
         }
 
-        function style_EmploymentDensity_11_0() {
+        function style_EmploymentDensity_13_0() {
             return {
-                pane: 'pane_EmploymentDensity_11',
+                pane: 'pane_EmploymentDensity_13',
                 opacity: 1,
                 color: 'rgba(0,0,0,0.0)',
                 dashArray: '',
@@ -477,17 +538,17 @@
                 fillColor: 'rgba(212,171,106,0.55)',
             }
         }
-        map.createPane('pane_EmploymentDensity_11');
-        map.getPane('pane_EmploymentDensity_11').style.zIndex = 411;
-        map.getPane('pane_EmploymentDensity_11').style['mix-blend-mode'] = 'normal';
-        var layer_EmploymentDensity_11 = new L.geoJson(json_EmploymentDensity_11, {
+        map.createPane('pane_EmploymentDensity_13');
+        map.getPane('pane_EmploymentDensity_13').style.zIndex = 413;
+        map.getPane('pane_EmploymentDensity_13').style['mix-blend-mode'] = 'normal';
+        var layer_EmploymentDensity_13 = new L.geoJson(json_EmploymentDensity_13, {
             attribution: '<a href=""></a>',
-            pane: 'pane_EmploymentDensity_11',
-            onEachFeature: pop_EmploymentDensity_11,
-            style: style_EmploymentDensity_11_0,
+            pane: 'pane_EmploymentDensity_13',
+            onEachFeature: pop_EmploymentDensity_13,
+            style: style_EmploymentDensity_13_0,
         });
-        bounds_group.addLayer(layer_EmploymentDensity_11);
-        function pop_MartaStop_12(feature, layer) {
+        bounds_group.addLayer(layer_EmploymentDensity_13);
+        function pop_MartaStop_14(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['Name'] !== null ? Autolinker.link(String(feature.properties['Name'])) : '') + '</td>\
@@ -496,9 +557,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_MartaStop_12_0() {
+        function style_MartaStop_14_0() {
             return {
-                pane: 'pane_MartaStop_12',
+                pane: 'pane_MartaStop_14',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(0,0,0,0.0)',
@@ -511,23 +572,23 @@
                 fillColor: 'rgba(31,120,180,1.0)',
             }
         }
-        map.createPane('pane_MartaStop_12');
-        map.getPane('pane_MartaStop_12').style.zIndex = 412;
-        map.getPane('pane_MartaStop_12').style['mix-blend-mode'] = 'normal';
-        var layer_MartaStop_12 = new L.geoJson(json_MartaStop_12, {
+        map.createPane('pane_MartaStop_14');
+        map.getPane('pane_MartaStop_14').style.zIndex = 414;
+        map.getPane('pane_MartaStop_14').style['mix-blend-mode'] = 'normal';
+        var layer_MartaStop_14 = new L.geoJson(json_MartaStop_14, {
             attribution: '<a href=""></a>',
-            pane: 'pane_MartaStop_12',
-            onEachFeature: pop_MartaStop_12,
+            pane: 'pane_MartaStop_14',
+            onEachFeature: pop_MartaStop_14,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_MartaStop_12_0(feature));
+                return L.circleMarker(latlng, style_MartaStop_14_0(feature));
             },
         });
-        bounds_group.addLayer(layer_MartaStop_12);
-        function pop_RelayHub_13(feature, layer) {
+        bounds_group.addLayer(layer_MartaStop_14);
+        function pop_RelayHub_15(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2"><strong>Name</strong><br />' + (feature.properties['Name'] !== null ? Autolinker.link(String(feature.properties['Name'])) : '') + '</td>\
@@ -539,9 +600,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_RelayHub_13_0() {
+        function style_RelayHub_15_0() {
             return {
-                pane: 'pane_RelayHub_13',
+                pane: 'pane_RelayHub_15',
         rotationAngle: 0.0,
         rotationOrigin: 'center center',
         icon: L.icon({
@@ -550,22 +611,22 @@
         }),
             }
         }
-        map.createPane('pane_RelayHub_13');
-        map.getPane('pane_RelayHub_13').style.zIndex = 413;
-        map.getPane('pane_RelayHub_13').style['mix-blend-mode'] = 'normal';
-        var layer_RelayHub_13 = new L.geoJson(json_RelayHub_13, {
+        map.createPane('pane_RelayHub_15');
+        map.getPane('pane_RelayHub_15').style.zIndex = 415;
+        map.getPane('pane_RelayHub_15').style['mix-blend-mode'] = 'normal';
+        var layer_RelayHub_15 = new L.geoJson(json_RelayHub_15, {
             attribution: '<a href=""></a>',
-            pane: 'pane_RelayHub_13',
-            onEachFeature: pop_RelayHub_13,
+            pane: 'pane_RelayHub_15',
+            onEachFeature: pop_RelayHub_15,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.marker(latlng, style_RelayHub_13_0(feature));
+                return L.marker(latlng, style_RelayHub_15_0(feature));
             },
         });
-        bounds_group.addLayer(layer_RelayHub_13);
+        bounds_group.addLayer(layer_RelayHub_15);
         var osmGeocoder = new L.Control.OSMGeocoder({
             collapsed: false,
             position: 'topright',
@@ -573,7 +634,7 @@
         });
         osmGeocoder.addTo(map);
         var baseMaps = {};
-        L.control.layers(baseMaps,{'<img src="legend/RelayHub_13.png" /> Relay Hub': layer_RelayHub_13,'<img src="legend/MartaStop_12.png" /> Marta Stop': layer_MartaStop_12,'<img src="legend/EmploymentDensity_11.png" /> Employment Density': layer_EmploymentDensity_11,'<img src="legend/PopulationDensity_10.png" /> Population Density': layer_PopulationDensity_10,'<img src="legend/Commercial_9.png" /> Commercial': layer_Commercial_9,'<img src="legend/Neighborhood_8.png" /> Neighborhood': layer_Neighborhood_8,'<img src="legend/MartaLine_7.png" /> Marta Line': layer_MartaLine_7,'<img src="legend/Major_Roads_6.png" /> Major_Roads': layer_Major_Roads_6,'Uber Trips Under 5 Miles - Starts & Ends<br /><table><tr><td style="text-align: center;"><img src="legend/UberTripsUnder5MilesStartsEnds_5_Low0.png" /></td><td>Low</td></tr><tr><td style="text-align: center;"><img src="legend/UberTripsUnder5MilesStartsEnds_5_Average1.png" /></td><td>Average</td></tr><tr><td style="text-align: center;"><img src="legend/UberTripsUnder5MilesStartsEnds_5_High2.png" /></td><td>High</td></tr></table>': layer_UberTripsUnder5MilesStartsEnds_5,'Relay Trip Starts - Summer 2018<br /><table><tr><td style="text-align: center;"><img src="legend/RelayTripStartsSummer2018_4_Low0.png" /></td><td>Low</td></tr><tr><td style="text-align: center;"><img src="legend/RelayTripStartsSummer2018_4_Average1.png" /></td><td>Average</td></tr><tr><td style="text-align: center;"><img src="legend/RelayTripStartsSummer2018_4_High2.png" /></td><td>High</td></tr></table>': layer_RelayTripStartsSummer2018_4,'<img src="legend/BikeLane_3.png" /> Bike Lane': layer_BikeLane_3,'<img src="legend/JUMPSystemArea15SquareMiles_2.png" /> JUMP System Area (15 Square Miles)': layer_JUMPSystemArea15SquareMiles_2,'<img src="legend/SoBiRelaySystemArea_1.png" /> SoBi Relay System Area': layer_SoBiRelaySystemArea_1,'<img src="legend/AtlantaCityLimits_0.png" /> Atlanta City Limits': layer_AtlantaCityLimits_0,},{collapsed:false}).addTo(map);
+        L.control.layers(baseMaps,{'<img src="legend/RelayHub_15.png" /> Relay Hub': layer_RelayHub_15,'<img src="legend/MartaStop_14.png" /> Marta Stop': layer_MartaStop_14,'<img src="legend/EmploymentDensity_13.png" /> Employment Density': layer_EmploymentDensity_13,'<img src="legend/PopulationDensity_12.png" /> Population Density': layer_PopulationDensity_12,'<img src="legend/Commercial_11.png" /> Commercial': layer_Commercial_11,'<img src="legend/Neighborhood_10.png" /> Neighborhood': layer_Neighborhood_10,'<img src="legend/MartaLine_9.png" /> Marta Line': layer_MartaLine_9,'<img src="legend/Major_Roads_8.png" /> Major_Roads': layer_Major_Roads_8,'Uber Trips Under 5 Miles - Starts & Ends<br /><table><tr><td style="text-align: center;"><img src="legend/UberTripsUnder5MilesStartsEnds_7_Low0.png" /></td><td>Low</td></tr><tr><td style="text-align: center;"><img src="legend/UberTripsUnder5MilesStartsEnds_7_Average1.png" /></td><td>Average</td></tr><tr><td style="text-align: center;"><img src="legend/UberTripsUnder5MilesStartsEnds_7_High2.png" /></td><td>High</td></tr></table>': layer_UberTripsUnder5MilesStartsEnds_7,'Relay Trip Starts - Summer 2018<br /><table><tr><td style="text-align: center;"><img src="legend/RelayTripStartsSummer2018_6_Low0.png" /></td><td>Low</td></tr><tr><td style="text-align: center;"><img src="legend/RelayTripStartsSummer2018_6_Average1.png" /></td><td>Average</td></tr><tr><td style="text-align: center;"><img src="legend/RelayTripStartsSummer2018_6_High2.png" /></td><td>High</td></tr></table>': layer_RelayTripStartsSummer2018_6,'<img src="legend/BikeLane_5.png" /> Bike Lane': layer_BikeLane_5,'<img src="legend/BeltlineExpansion_4.png" /> Beltline Expansion': layer_BeltlineExpansion_4,'<img src="legend/JUMPSystemAreaSmall_3.png" /> JUMP System Area Small': layer_JUMPSystemAreaSmall_3,'<img src="legend/JUMPSystenArea_Large_2.png" /> JUMPSystenArea_Large': layer_JUMPSystenArea_Large_2,'<img src="legend/SoBiRelaySystemArea_1.png" /> SoBi Relay System Area': layer_SoBiRelaySystemArea_1,'<img src="legend/AtlantaCityLimits_0.png" /> Atlanta City Limits': layer_AtlantaCityLimits_0,},{collapsed:false}).addTo(map);
         setBounds();
         </script>
     </body>
