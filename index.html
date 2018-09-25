@@ -34,7 +34,7 @@
         <script src="js/Control.OSMGeocoder.js"></script>
         <script src="data/AtlantaCityLimits_0.js"></script>
         <script src="data/SoBiRelaySystemArea_1.js"></script>
-        <script src="data/JUMPSystenArea_Large_2.js"></script>
+        <script src="data/JUMPSystemAreaLarge_2.js"></script>
         <script src="data/JUMPSystemAreaSmall_3.js"></script>
         <script src="data/BeltlineExpansion_4.js"></script>
         <script src="data/BikeLane_5.js"></script>
@@ -51,7 +51,7 @@
         <script>
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
-        }).fitBounds([[33.7057825315,-84.5092806425],[33.8195054129,-84.2597427075]]);
+        }).fitBounds([[33.6996663545,-84.4897503814],[33.8219910781,-84.2875889128]]);
         var hash = new L.Hash(map);
         map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a>');
         var bounds_group = new L.featureGroup([]);
@@ -121,7 +121,7 @@
             style: style_SoBiRelaySystemArea_1_0,
         });
         bounds_group.addLayer(layer_SoBiRelaySystemArea_1);
-        function pop_JUMPSystenArea_Large_2(feature, layer) {
+        function pop_JUMPSystemAreaLarge_2(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['FID'] !== null ? Autolinker.link(String(feature.properties['FID'])) : '') + '</td>\
@@ -130,9 +130,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_JUMPSystenArea_Large_2_0() {
+        function style_JUMPSystemAreaLarge_2_0() {
             return {
-                pane: 'pane_JUMPSystenArea_Large_2',
+                pane: 'pane_JUMPSystemAreaLarge_2',
                 opacity: 1,
                 color: 'rgba(0,0,0,1.0)',
                 dashArray: '10,5',
@@ -144,17 +144,17 @@
                 fillColor: 'rgba(255,246,57,0.0)',
             }
         }
-        map.createPane('pane_JUMPSystenArea_Large_2');
-        map.getPane('pane_JUMPSystenArea_Large_2').style.zIndex = 402;
-        map.getPane('pane_JUMPSystenArea_Large_2').style['mix-blend-mode'] = 'normal';
-        var layer_JUMPSystenArea_Large_2 = new L.geoJson(json_JUMPSystenArea_Large_2, {
+        map.createPane('pane_JUMPSystemAreaLarge_2');
+        map.getPane('pane_JUMPSystemAreaLarge_2').style.zIndex = 402;
+        map.getPane('pane_JUMPSystemAreaLarge_2').style['mix-blend-mode'] = 'normal';
+        var layer_JUMPSystemAreaLarge_2 = new L.geoJson(json_JUMPSystemAreaLarge_2, {
             attribution: '<a href=""></a>',
-            pane: 'pane_JUMPSystenArea_Large_2',
-            onEachFeature: pop_JUMPSystenArea_Large_2,
-            style: style_JUMPSystenArea_Large_2_0,
+            pane: 'pane_JUMPSystemAreaLarge_2',
+            onEachFeature: pop_JUMPSystemAreaLarge_2,
+            style: style_JUMPSystemAreaLarge_2_0,
         });
-        bounds_group.addLayer(layer_JUMPSystenArea_Large_2);
-        map.addLayer(layer_JUMPSystenArea_Large_2);
+        bounds_group.addLayer(layer_JUMPSystemAreaLarge_2);
+        map.addLayer(layer_JUMPSystemAreaLarge_2);
         function pop_JUMPSystemAreaSmall_3(feature, layer) {
         }
 
@@ -318,6 +318,16 @@
         function pop_UberTripsUnder5MilesStartsEnds_7(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
+                        <td colspan="2">' + (feature.properties['NUMPOINTS'] !== null ? Autolinker.link(String(feature.properties['NUMPOINTS'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['NUMPOINTS2'] !== null ? Autolinker.link(String(feature.properties['NUMPOINTS2'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Uber_Total'] !== null ? Autolinker.link(String(feature.properties['Uber_Total'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Uber_Pt'] !== null ? Autolinker.link(String(feature.properties['Uber_Pt'])) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
@@ -451,7 +461,7 @@
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 4.0,
+                weight: 8.0,
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(205,247,50,0.4)',
@@ -634,7 +644,7 @@
         });
         osmGeocoder.addTo(map);
         var baseMaps = {};
-        L.control.layers(baseMaps,{'<img src="legend/RelayHub_15.png" /> Relay Hub': layer_RelayHub_15,'<img src="legend/MartaStop_14.png" /> Marta Stop': layer_MartaStop_14,'<img src="legend/EmploymentDensity_13.png" /> Employment Density': layer_EmploymentDensity_13,'<img src="legend/PopulationDensity_12.png" /> Population Density': layer_PopulationDensity_12,'<img src="legend/Commercial_11.png" /> Commercial': layer_Commercial_11,'<img src="legend/Neighborhood_10.png" /> Neighborhood': layer_Neighborhood_10,'<img src="legend/MartaLine_9.png" /> Marta Line': layer_MartaLine_9,'<img src="legend/Major_Roads_8.png" /> Major_Roads': layer_Major_Roads_8,'Uber Trips Under 5 Miles - Starts & Ends<br /><table><tr><td style="text-align: center;"><img src="legend/UberTripsUnder5MilesStartsEnds_7_Low0.png" /></td><td>Low</td></tr><tr><td style="text-align: center;"><img src="legend/UberTripsUnder5MilesStartsEnds_7_Average1.png" /></td><td>Average</td></tr><tr><td style="text-align: center;"><img src="legend/UberTripsUnder5MilesStartsEnds_7_High2.png" /></td><td>High</td></tr></table>': layer_UberTripsUnder5MilesStartsEnds_7,'Relay Trip Starts - Summer 2018<br /><table><tr><td style="text-align: center;"><img src="legend/RelayTripStartsSummer2018_6_Low0.png" /></td><td>Low</td></tr><tr><td style="text-align: center;"><img src="legend/RelayTripStartsSummer2018_6_Average1.png" /></td><td>Average</td></tr><tr><td style="text-align: center;"><img src="legend/RelayTripStartsSummer2018_6_High2.png" /></td><td>High</td></tr></table>': layer_RelayTripStartsSummer2018_6,'<img src="legend/BikeLane_5.png" /> Bike Lane': layer_BikeLane_5,'<img src="legend/BeltlineExpansion_4.png" /> Beltline Expansion': layer_BeltlineExpansion_4,'<img src="legend/JUMPSystemAreaSmall_3.png" /> JUMP System Area Small': layer_JUMPSystemAreaSmall_3,'<img src="legend/JUMPSystenArea_Large_2.png" /> JUMPSystenArea_Large': layer_JUMPSystenArea_Large_2,'<img src="legend/SoBiRelaySystemArea_1.png" /> SoBi Relay System Area': layer_SoBiRelaySystemArea_1,'<img src="legend/AtlantaCityLimits_0.png" /> Atlanta City Limits': layer_AtlantaCityLimits_0,},{collapsed:false}).addTo(map);
+        L.control.layers(baseMaps,{'<img src="legend/RelayHub_15.png" /> Relay Hub': layer_RelayHub_15,'<img src="legend/MartaStop_14.png" /> Marta Stop': layer_MartaStop_14,'<img src="legend/EmploymentDensity_13.png" /> Employment Density': layer_EmploymentDensity_13,'<img src="legend/PopulationDensity_12.png" /> Population Density': layer_PopulationDensity_12,'<img src="legend/Commercial_11.png" /> Commercial': layer_Commercial_11,'<img src="legend/Neighborhood_10.png" /> Neighborhood': layer_Neighborhood_10,'<img src="legend/MartaLine_9.png" /> Marta Line': layer_MartaLine_9,'<img src="legend/Major_Roads_8.png" /> Major_Roads': layer_Major_Roads_8,'Uber Trips Under 5 Miles - Starts & Ends<br /><table><tr><td style="text-align: center;"><img src="legend/UberTripsUnder5MilesStartsEnds_7_Low0.png" /></td><td>Low</td></tr><tr><td style="text-align: center;"><img src="legend/UberTripsUnder5MilesStartsEnds_7_Average1.png" /></td><td>Average</td></tr><tr><td style="text-align: center;"><img src="legend/UberTripsUnder5MilesStartsEnds_7_High2.png" /></td><td>High</td></tr></table>': layer_UberTripsUnder5MilesStartsEnds_7,'Relay Trip Starts - Summer 2018<br /><table><tr><td style="text-align: center;"><img src="legend/RelayTripStartsSummer2018_6_Low0.png" /></td><td>Low</td></tr><tr><td style="text-align: center;"><img src="legend/RelayTripStartsSummer2018_6_Average1.png" /></td><td>Average</td></tr><tr><td style="text-align: center;"><img src="legend/RelayTripStartsSummer2018_6_High2.png" /></td><td>High</td></tr></table>': layer_RelayTripStartsSummer2018_6,'<img src="legend/BikeLane_5.png" /> Bike Lane': layer_BikeLane_5,'<img src="legend/BeltlineExpansion_4.png" /> Beltline Expansion': layer_BeltlineExpansion_4,'<img src="legend/JUMPSystemAreaSmall_3.png" /> JUMP System Area Small': layer_JUMPSystemAreaSmall_3,'<img src="legend/JUMPSystemAreaLarge_2.png" /> JUMP System Area Large': layer_JUMPSystemAreaLarge_2,'<img src="legend/SoBiRelaySystemArea_1.png" /> SoBi Relay System Area': layer_SoBiRelaySystemArea_1,'<img src="legend/AtlantaCityLimits_0.png" /> Atlanta City Limits': layer_AtlantaCityLimits_0,},{collapsed:false}).addTo(map);
         setBounds();
         </script>
     </body>
