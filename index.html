@@ -42,13 +42,14 @@
         <script src="data/BeltlinePlannedExpansion_7.js"></script>
         <script src="data/BikeLane_8.js"></script>
         <script src="data/MajorRoads_9.js"></script>
-        <script src="data/SoBiRelaySystemArea_10.js"></script>
-        <script src="data/JUMPSystemAreaLarge_11.js"></script>
-        <script src="data/JUMPSystemAreaSmall_12.js"></script>
+        <script src="data/Highways_10.js"></script>
+        <script src="data/SoBiRelaySystemArea_11.js"></script>
+        <script src="data/JUMPSystemAreaLarge_12.js"></script>
+        <script src="data/JUMPSystemAreaSmall_13.js"></script>
         <script>
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
-        }).fitBounds([[33.6330707285,-84.6226199319],[33.8840364785,-84.2180080681]]);
+        }).fitBounds([[32.683604225,-85.90169377],[34.662928775,-82.71058823]]);
         var hash = new L.Hash(map);
         map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a>');
         var bounds_group = new L.featureGroup([]);
@@ -495,7 +496,6 @@
             style: style_BikeLane_8_0,
         });
         bounds_group.addLayer(layer_BikeLane_8);
-        map.addLayer(layer_BikeLane_8);
         function pop_MajorRoads_9(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -527,7 +527,47 @@
             style: style_MajorRoads_9_0,
         });
         bounds_group.addLayer(layer_MajorRoads_9);
-        function pop_SoBiRelaySystemArea_10(feature, layer) {
+        function pop_Highways_10(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['LINEARID'] !== null ? Autolinker.link(String(feature.properties['LINEARID'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['FULLNAME'] !== null ? Autolinker.link(String(feature.properties['FULLNAME'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['RTTYP'] !== null ? Autolinker.link(String(feature.properties['RTTYP'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['MTFCC'] !== null ? Autolinker.link(String(feature.properties['MTFCC'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Highways_10_0() {
+            return {
+                pane: 'pane_Highways_10',
+                opacity: 1,
+                color: 'rgba(255,246,57,1.0)',
+                dashArray: '10,5,1,5,1,5',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 3.0,
+                fillOpacity: 0,
+            }
+        }
+        map.createPane('pane_Highways_10');
+        map.getPane('pane_Highways_10').style.zIndex = 410;
+        map.getPane('pane_Highways_10').style['mix-blend-mode'] = 'normal';
+        var layer_Highways_10 = new L.geoJson(json_Highways_10, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_Highways_10',
+            onEachFeature: pop_Highways_10,
+            style: style_Highways_10_0,
+        });
+        bounds_group.addLayer(layer_Highways_10);
+        function pop_SoBiRelaySystemArea_11(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['FID'] !== null ? Autolinker.link(String(feature.properties['FID'])) : '') + '</td>\
@@ -536,9 +576,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_SoBiRelaySystemArea_10_0() {
+        function style_SoBiRelaySystemArea_11_0() {
             return {
-                pane: 'pane_SoBiRelaySystemArea_10',
+                pane: 'pane_SoBiRelaySystemArea_11',
                 opacity: 1,
                 color: 'rgba(51,160,44,1.0)',
                 dashArray: '10,5',
@@ -550,17 +590,17 @@
                 fillColor: 'rgba(198,185,97,0.0)',
             }
         }
-        map.createPane('pane_SoBiRelaySystemArea_10');
-        map.getPane('pane_SoBiRelaySystemArea_10').style.zIndex = 410;
-        map.getPane('pane_SoBiRelaySystemArea_10').style['mix-blend-mode'] = 'normal';
-        var layer_SoBiRelaySystemArea_10 = new L.geoJson(json_SoBiRelaySystemArea_10, {
+        map.createPane('pane_SoBiRelaySystemArea_11');
+        map.getPane('pane_SoBiRelaySystemArea_11').style.zIndex = 411;
+        map.getPane('pane_SoBiRelaySystemArea_11').style['mix-blend-mode'] = 'normal';
+        var layer_SoBiRelaySystemArea_11 = new L.geoJson(json_SoBiRelaySystemArea_11, {
             attribution: '<a href=""></a>',
-            pane: 'pane_SoBiRelaySystemArea_10',
-            onEachFeature: pop_SoBiRelaySystemArea_10,
-            style: style_SoBiRelaySystemArea_10_0,
+            pane: 'pane_SoBiRelaySystemArea_11',
+            onEachFeature: pop_SoBiRelaySystemArea_11,
+            style: style_SoBiRelaySystemArea_11_0,
         });
-        bounds_group.addLayer(layer_SoBiRelaySystemArea_10);
-        function pop_JUMPSystemAreaLarge_11(feature, layer) {
+        bounds_group.addLayer(layer_SoBiRelaySystemArea_11);
+        function pop_JUMPSystemAreaLarge_12(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['FID'] !== null ? Autolinker.link(String(feature.properties['FID'])) : '') + '</td>\
@@ -569,9 +609,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_JUMPSystemAreaLarge_11_0() {
+        function style_JUMPSystemAreaLarge_12_0() {
             return {
-                pane: 'pane_JUMPSystemAreaLarge_11',
+                pane: 'pane_JUMPSystemAreaLarge_12',
                 opacity: 1,
                 color: 'rgba(0,0,0,1.0)',
                 dashArray: '10,5',
@@ -583,23 +623,23 @@
                 fillColor: 'rgba(14,175,38,0.0)',
             }
         }
-        map.createPane('pane_JUMPSystemAreaLarge_11');
-        map.getPane('pane_JUMPSystemAreaLarge_11').style.zIndex = 411;
-        map.getPane('pane_JUMPSystemAreaLarge_11').style['mix-blend-mode'] = 'normal';
-        var layer_JUMPSystemAreaLarge_11 = new L.geoJson(json_JUMPSystemAreaLarge_11, {
+        map.createPane('pane_JUMPSystemAreaLarge_12');
+        map.getPane('pane_JUMPSystemAreaLarge_12').style.zIndex = 412;
+        map.getPane('pane_JUMPSystemAreaLarge_12').style['mix-blend-mode'] = 'normal';
+        var layer_JUMPSystemAreaLarge_12 = new L.geoJson(json_JUMPSystemAreaLarge_12, {
             attribution: '<a href=""></a>',
-            pane: 'pane_JUMPSystemAreaLarge_11',
-            onEachFeature: pop_JUMPSystemAreaLarge_11,
-            style: style_JUMPSystemAreaLarge_11_0,
+            pane: 'pane_JUMPSystemAreaLarge_12',
+            onEachFeature: pop_JUMPSystemAreaLarge_12,
+            style: style_JUMPSystemAreaLarge_12_0,
         });
-        bounds_group.addLayer(layer_JUMPSystemAreaLarge_11);
-        map.addLayer(layer_JUMPSystemAreaLarge_11);
-        function pop_JUMPSystemAreaSmall_12(feature, layer) {
+        bounds_group.addLayer(layer_JUMPSystemAreaLarge_12);
+        map.addLayer(layer_JUMPSystemAreaLarge_12);
+        function pop_JUMPSystemAreaSmall_13(feature, layer) {
         }
 
-        function style_JUMPSystemAreaSmall_12_0() {
+        function style_JUMPSystemAreaSmall_13_0() {
             return {
-                pane: 'pane_JUMPSystemAreaSmall_12',
+                pane: 'pane_JUMPSystemAreaSmall_13',
                 opacity: 1,
                 color: 'rgba(227,26,28,1.0)',
                 dashArray: '10,5',
@@ -611,17 +651,17 @@
                 fillColor: 'rgba(228,35,225,0.0)',
             }
         }
-        map.createPane('pane_JUMPSystemAreaSmall_12');
-        map.getPane('pane_JUMPSystemAreaSmall_12').style.zIndex = 412;
-        map.getPane('pane_JUMPSystemAreaSmall_12').style['mix-blend-mode'] = 'normal';
-        var layer_JUMPSystemAreaSmall_12 = new L.geoJson(json_JUMPSystemAreaSmall_12, {
+        map.createPane('pane_JUMPSystemAreaSmall_13');
+        map.getPane('pane_JUMPSystemAreaSmall_13').style.zIndex = 413;
+        map.getPane('pane_JUMPSystemAreaSmall_13').style['mix-blend-mode'] = 'normal';
+        var layer_JUMPSystemAreaSmall_13 = new L.geoJson(json_JUMPSystemAreaSmall_13, {
             attribution: '<a href=""></a>',
-            pane: 'pane_JUMPSystemAreaSmall_12',
-            onEachFeature: pop_JUMPSystemAreaSmall_12,
-            style: style_JUMPSystemAreaSmall_12_0,
+            pane: 'pane_JUMPSystemAreaSmall_13',
+            onEachFeature: pop_JUMPSystemAreaSmall_13,
+            style: style_JUMPSystemAreaSmall_13_0,
         });
-        bounds_group.addLayer(layer_JUMPSystemAreaSmall_12);
-        map.addLayer(layer_JUMPSystemAreaSmall_12);
+        bounds_group.addLayer(layer_JUMPSystemAreaSmall_13);
+        map.addLayer(layer_JUMPSystemAreaSmall_13);
         var osmGeocoder = new L.Control.OSMGeocoder({
             collapsed: false,
             position: 'topright',
@@ -629,7 +669,7 @@
         });
         osmGeocoder.addTo(map);
         var baseMaps = {};
-        L.control.layers(baseMaps,{'<img src="legend/JUMPSystemAreaSmall_12.png" /> JUMP System Area Small': layer_JUMPSystemAreaSmall_12,'<img src="legend/JUMPSystemAreaLarge_11.png" /> JUMP System Area Large': layer_JUMPSystemAreaLarge_11,'<img src="legend/SoBiRelaySystemArea_10.png" /> SoBi Relay System Area': layer_SoBiRelaySystemArea_10,'<img src="legend/MajorRoads_9.png" /> Major Roads': layer_MajorRoads_9,'<img src="legend/BikeLane_8.png" /> Bike Lane': layer_BikeLane_8,'<img src="legend/BeltlinePlannedExpansion_7.png" /> Beltline Planned Expansion': layer_BeltlinePlannedExpansion_7,'<img src="legend/MartaStop_6.png" /> Marta Stop': layer_MartaStop_6,'<img src="legend/RelayTripClusters_5.png" /> Relay Trip Clusters': layer_RelayTripClusters_5,'<img src="legend/MartaRoute_4.png" /> Marta Route': layer_MartaRoute_4,'<img src="legend/CommercialCorridor_3.png" /> Commercial Corridor': layer_CommercialCorridor_3,'<img src="legend/Neighborhood_2.png" /> Neighborhood': layer_Neighborhood_2,'System Area Priority Blocks<br /><table><tr><td style="text-align: center;"><img src="legend/SystemAreaPriorityBlocks_1_Low0.png" /></td><td>     Low</td></tr><tr><td style="text-align: center;"><img src="legend/SystemAreaPriorityBlocks_1_Average1.png" /></td><td>     Average</td></tr><tr><td style="text-align: center;"><img src="legend/SystemAreaPriorityBlocks_1_High2.png" /></td><td>     High</td></tr></table>': layer_SystemAreaPriorityBlocks_1,'<img src="legend/CityLimits_0.png" /> City Limits': layer_CityLimits_0,},{collapsed:false}).addTo(map);
+        L.control.layers(baseMaps,{'<img src="legend/JUMPSystemAreaSmall_13.png" /> JUMP System Area Small': layer_JUMPSystemAreaSmall_13,'<img src="legend/JUMPSystemAreaLarge_12.png" /> JUMP System Area Large': layer_JUMPSystemAreaLarge_12,'<img src="legend/SoBiRelaySystemArea_11.png" /> SoBi Relay System Area': layer_SoBiRelaySystemArea_11,'<img src="legend/Highways_10.png" /> Highways ': layer_Highways_10,'<img src="legend/MajorRoads_9.png" /> Major Roads': layer_MajorRoads_9,'<img src="legend/BikeLane_8.png" /> Bike Lane': layer_BikeLane_8,'<img src="legend/BeltlinePlannedExpansion_7.png" /> Beltline Planned Expansion': layer_BeltlinePlannedExpansion_7,'<img src="legend/MartaStop_6.png" /> Marta Stop': layer_MartaStop_6,'<img src="legend/RelayTripClusters_5.png" /> Relay Trip Clusters': layer_RelayTripClusters_5,'<img src="legend/MartaRoute_4.png" /> Marta Route': layer_MartaRoute_4,'<img src="legend/CommercialCorridor_3.png" /> Commercial Corridor': layer_CommercialCorridor_3,'<img src="legend/Neighborhood_2.png" /> Neighborhood': layer_Neighborhood_2,'System Area Priority Blocks<br /><table><tr><td style="text-align: center;"><img src="legend/SystemAreaPriorityBlocks_1_Low0.png" /></td><td>     Low</td></tr><tr><td style="text-align: center;"><img src="legend/SystemAreaPriorityBlocks_1_Average1.png" /></td><td>     Average</td></tr><tr><td style="text-align: center;"><img src="legend/SystemAreaPriorityBlocks_1_High2.png" /></td><td>     High</td></tr></table>': layer_SystemAreaPriorityBlocks_1,'<img src="legend/CityLimits_0.png" /> City Limits': layer_CityLimits_0,},{collapsed:false}).addTo(map);
         setBounds();
         </script>
     </body>
