@@ -49,12 +49,12 @@
         <script>
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
-        }).fitBounds([[32.683604225,-85.90169377],[34.662928775,-82.71058823]]);
+        }).fitBounds([[33.7285900548,-84.4504413182],[33.8015287014,-84.3328482134]]);
         var hash = new L.Hash(map);
         map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a>');
         var bounds_group = new L.featureGroup([]);
         var basemap0 = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}{r}.png', {
-            attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors,<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+            attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
             maxZoom: 28
         });
         basemap0.addTo(map);
@@ -103,28 +103,28 @@
         function pop_SystemAreaPriorityBlocks_1(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Job_Pt'] !== null ? Autolinker.link(String(feature.properties['Job_Pt'])) : '') + '</td>\
+                        <td colspan="2"><strong>Job_Pt</strong><br />' + (feature.properties['Job_Pt'] !== null ? Autolinker.link(String(feature.properties['Job_Pt'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Pop_Pt'] !== null ? Autolinker.link(String(feature.properties['Pop_Pt'])) : '') + '</td>\
+                        <td colspan="2"><strong>Pop_Pt</strong><br />' + (feature.properties['Pop_Pt'] !== null ? Autolinker.link(String(feature.properties['Pop_Pt'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Marta_Pt'] !== null ? Autolinker.link(String(feature.properties['Marta_Pt'])) : '') + '</td>\
+                        <td colspan="2"><strong>Marta_Pt</strong><br />' + (feature.properties['Marta_Pt'] !== null ? Autolinker.link(String(feature.properties['Marta_Pt'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Equity_Pt'] !== null ? Autolinker.link(String(feature.properties['Equity_Pt'])) : '') + '</td>\
+                        <td colspan="2"><strong>Equity_Pt</strong><br />' + (feature.properties['Equity_Pt'] !== null ? Autolinker.link(String(feature.properties['Equity_Pt'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Uber_Pt'] !== null ? Autolinker.link(String(feature.properties['Uber_Pt'])) : '') + '</td>\
+                        <td colspan="2"><strong>Uber_Pt</strong><br />' + (feature.properties['Uber_Pt'] !== null ? Autolinker.link(String(feature.properties['Uber_Pt'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Relay_Pt'] !== null ? Autolinker.link(String(feature.properties['Relay_Pt'])) : '') + '</td>\
+                        <td colspan="2"><strong>Relay_Pt</strong><br />' + (feature.properties['Relay_Pt'] !== null ? Autolinker.link(String(feature.properties['Relay_Pt'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Bike_Pt'] !== null ? Autolinker.link(String(feature.properties['Bike_Pt'])) : '') + '</td>\
+                        <td colspan="2"><strong>Bike_Pt</strong><br />' + (feature.properties['Bike_Pt'] !== null ? Autolinker.link(String(feature.properties['Bike_Pt'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Point'] !== null ? Autolinker.link(String(feature.properties['Point'])) : '') + '</td>\
+                        <td colspan="2"><strong>Point</strong><br />' + (feature.properties['Point'] !== null ? Autolinker.link(String(feature.properties['Point'])) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
@@ -269,7 +269,6 @@
             style: style_MartaRoute_4_0,
         });
         bounds_group.addLayer(layer_MartaRoute_4);
-        map.addLayer(layer_MartaRoute_4);
         function pop_RelayTripClusters_5(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -567,6 +566,7 @@
             style: style_Highways_10_0,
         });
         bounds_group.addLayer(layer_Highways_10);
+        map.addLayer(layer_Highways_10);
         function pop_SoBiRelaySystemArea_11(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
