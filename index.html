@@ -56,7 +56,7 @@
         <script>
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
-        }).fitBounds([[33.7158657157,-84.5234109857],[33.8610355637,-84.2691240143]]);
+        }).fitBounds([[33.6941543619,-84.4845630801],[33.8634097452,-84.1982226252]]);
         var hash = new L.Hash(map);
         map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a>');
         var bounds_group = new L.featureGroup([]);
@@ -761,16 +761,13 @@
         function pop_SystemAreaEquity_15(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['BLOCKID10'] !== null ? Autolinker.link(String(feature.properties['BLOCKID10'])) : '') + '</td>\
+                        <td colspan="2"><strong>Population</strong><br />' + (feature.properties['Population'] !== null ? Autolinker.link(String(feature.properties['Population'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['POP10'] !== null ? Autolinker.link(String(feature.properties['POP10'])) : '') + '</td>\
+                        <td colspan="2"><strong>Area</strong><br />' + (feature.properties['Area'] !== null ? Autolinker.link(String(feature.properties['Area'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Area'] !== null ? Autolinker.link(String(feature.properties['Area'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['points_201'] !== null ? Autolinker.link(String(feature.properties['points_201'])) : '') + '</td>\
+                        <td colspan="2"><strong>Jobs</strong><br />' + (feature.properties['Jobs'] !== null ? Autolinker.link(String(feature.properties['Jobs'])) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
@@ -895,13 +892,13 @@
         function pop_MARTAHourlyFrequency_19(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['stop_id'] !== null ? Autolinker.link(String(feature.properties['stop_id'])) : '') + '</td>\
+                        <td colspan="2"><strong>stop_id</strong><br />' + (feature.properties['stop_id'] !== null ? Autolinker.link(String(feature.properties['stop_id'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['frequency'] !== null ? Autolinker.link(String(feature.properties['frequency'])) : '') + '</td>\
+                        <td colspan="2"><strong>frequency</strong><br />' + (feature.properties['frequency'] !== null ? Autolinker.link(String(feature.properties['frequency'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['stop_name'] !== null ? Autolinker.link(String(feature.properties['stop_name'])) : '') + '</td>\
+                        <td colspan="2"><strong>stop_name</strong><br />' + (feature.properties['stop_name'] !== null ? Autolinker.link(String(feature.properties['stop_name'])) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
