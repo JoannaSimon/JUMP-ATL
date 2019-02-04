@@ -56,7 +56,7 @@
         <script>
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
-        }).fitBounds([[33.6941543619,-84.4845630801],[33.8634097452,-84.1982226252]]);
+        }).fitBounds([[33.69234914,-84.5555657274],[33.8616080868,-84.2692252726]]);
         var hash = new L.Hash(map);
         map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a>');
         var bounds_group = new L.featureGroup([]);
@@ -779,10 +779,12 @@
                 opacity: 1,
                 color: 'rgba(0,0,0,1.0)',
                 dashArray: '10,5',
-                lineCap: 'square',
-                lineJoin: 'bevel',
+                lineCap: 'butt',
+                lineJoin: 'miter',
                 weight: 2.0,
-                fillOpacity: 0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(148,86,255,0.0)',
             }
         }
         map.createPane('pane_SystemAreaEquity_15');
